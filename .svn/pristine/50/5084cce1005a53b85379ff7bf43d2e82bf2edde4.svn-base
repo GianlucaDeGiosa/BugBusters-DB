@@ -1,0 +1,80 @@
+{
+    "kind": "collectionType",
+    "collectionName": "aziendas",
+    "info": {
+        "singularName": "azienda",
+        "pluralName": "aziendas",
+        "displayName": "Azienda",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "NomeAzienda": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "Settore": {
+            "type": "string",
+            "required": true
+        },
+        "Descrizione": {
+            "type": "text",
+            "required": true
+        },
+        "Cultura": {
+            "type": "text"
+        },
+        "SedeLegale": {
+            "type": "string",
+            "required": true
+        },
+        "ID_Sito": {
+            "type": "uid",
+            "targetField": "NomeAzienda"
+        },
+        "Logo": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "users_permissions_user": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "azienda"
+        },
+        "recruiters": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::recruiter.recruiter",
+            "mappedBy": "azienda"
+        },
+        "offerta_lavoro": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::offerta-lavoro.offerta-lavoro",
+            "mappedBy": "azienda"
+        },
+        "materiale_formativos": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::materiale-formativo.materiale-formativo",
+            "mappedBy": "azienda"
+        },
+        "Email": {
+            "type": "email"
+        },
+        "Password": {
+            "type": "password"
+        }
+    }
+}

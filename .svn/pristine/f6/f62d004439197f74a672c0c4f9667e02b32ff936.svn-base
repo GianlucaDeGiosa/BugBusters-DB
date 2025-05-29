@@ -1,0 +1,41 @@
+{
+    "kind": "collectionType",
+    "collectionName": "competenzas",
+    "info": {
+        "singularName": "competenza",
+        "pluralName": "competenzas",
+        "displayName": "Competenza",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "Nome": {
+            "type": "string"
+        },
+        "Categoria": {
+            "type": "string"
+        },
+        "Livello": {
+            "type": "enumeration",
+            "enum": [
+                "Base",
+                "Intermedio",
+                "Esperto"
+            ]
+        },
+        "candidatoes": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::candidato.candidato",
+            "inversedBy": "competenzas"
+        },
+        "offerteLavoro": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::offerta-lavoro.offerta-lavoro",
+            "inversedBy": "competenze"
+        }
+    }
+}

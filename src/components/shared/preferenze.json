@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_preferenzes",
+  "info": {
+    "displayName": "Preferenze",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "AmbienteLavorativo": {
+      "type": "enumeration",
+      "enum": [
+        "Remoto",
+        "Ibrido",
+        "In sede"
+      ],
+      "required": true
+    },
+    "TipologiaContratto": {
+      "type": "enumeration",
+      "enum": [
+        "Determinato",
+        "Indeterminato",
+        "Apprendistato",
+        "In stage",
+        "Part-Time"
+      ]
+    },
+    "Benefit": {
+      "displayName": "BenefitDesiderati",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.benefit-desiderati"
+    }
+  }
+}

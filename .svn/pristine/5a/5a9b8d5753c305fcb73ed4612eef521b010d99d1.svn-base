@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_soft_skills",
+  "info": {
+    "displayName": "SoftSkill",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SoftSkill": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+    "kind": "collectionType",
+    "collectionName": "offerta_lavoros",
+    "info": {
+        "singularName": "offerta-lavoro",
+        "pluralName": "offerta-lavoros",
+        "displayName": "OffertaLavoro",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "Titolo": {
+            "type": "string"
+        },
+        "Descrizione": {
+            "type": "text"
+        },
+        "TipoContratto": {
+            "type": "enumeration",
+            "enum": [
+                "Determinato",
+                "Indeterminato",
+                "Apprendistato",
+                "In stage",
+                "Part-Time"
+            ]
+        },
+        "Sede": {
+            "type": "string"
+        },
+        "Benefit": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.benefit"
+        },
+        "EsperienzaRichiesta": {
+            "type": "enumeration",
+            "enum": [
+                "Junio",
+                "Mid",
+                "Senior"
+            ]
+        },
+        "azienda": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::azienda.azienda",
+            "inversedBy": "offerta_lavoro"
+        },
+        "candidati": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::candidato.candidato",
+            "inversedBy": "offerte_lavoro"
+        },
+        "competenze": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::competenza.competenza",
+            "mappedBy": "offerteLavoro"
+        },
+        "Requisito": {
+            "displayName": "Requisito",
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.requisito"
+        },
+        "feedback": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::feedback.feedback",
+            "mappedBy": "offerta_lavoro"
+        }
+    }
+}

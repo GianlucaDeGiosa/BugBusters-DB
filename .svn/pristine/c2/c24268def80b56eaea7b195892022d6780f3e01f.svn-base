@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recruiters",
+  "info": {
+    "singularName": "recruiter",
+    "pluralName": "recruiters",
+    "displayName": "Recruiter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Cognome": {
+      "type": "string"
+    },
+    "ID_Recruiter": {
+      "type": "uid",
+      "targetField": "Nome"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "azienda": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::azienda.azienda",
+      "inversedBy": "recruiters"
+    },
+    "feedbacks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::feedback.feedback",
+      "mappedBy": "recruiter"
+    },
+    "colloquios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::colloquio.colloquio",
+      "mappedBy": "recruiter"
+    },
+    "Password": {
+      "type": "password"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "recruiter"
+    }
+  }
+}

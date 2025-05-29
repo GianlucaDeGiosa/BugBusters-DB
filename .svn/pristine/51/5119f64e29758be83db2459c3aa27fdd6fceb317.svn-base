@@ -1,0 +1,20 @@
+{
+    "collectionName": "components_shared_attitudinis",
+    "info": {
+        "displayName": "Attitudini",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "Descrizione": {
+            "type": "richtext",
+            "required": false
+        },
+        "SoftSkill": {
+            "displayName": "SoftSkill",
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.soft-skill"
+        }
+    }
+}

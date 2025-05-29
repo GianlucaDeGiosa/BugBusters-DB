@@ -1,0 +1,20 @@
+{
+    "collectionName": "components_shared_requisitos",
+    "info": {
+        "displayName": "Requisito"
+    },
+    "options": {},
+    "attributes": {
+        "Competenza": {
+            "type": "string"
+        },
+        "LivelloCompetenza": {
+            "type": "enumeration",
+            "enum": [
+                "Base",
+                "Intermedio",
+                "Esperto"
+            ]
+        }
+    }
+}

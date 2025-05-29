@@ -1,0 +1,12 @@
+{
+    "collectionName": "components_shared_benefit_desideratis",
+    "info": {
+        "displayName": "BenefitDesiderati"
+    },
+    "options": {},
+    "attributes": {
+        "BenefitDesiderati": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "materiale_formativos",
+  "info": {
+    "singularName": "materiale-formativo",
+    "pluralName": "materiale-formativos",
+    "displayName": "MaterialeFormativo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Titolo": {
+      "type": "string"
+    },
+    "Descrizione": {
+      "type": "text"
+    },
+    "File": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Pubblico": {
+      "type": "boolean"
+    },
+    "azienda": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::azienda.azienda",
+      "inversedBy": "materiale_formativos"
+    },
+    "candidatoes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::candidato.candidato",
+      "inversedBy": "materiale_formativos"
+    }
+  }
+}

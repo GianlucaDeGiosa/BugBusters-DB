@@ -1,0 +1,114 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidatoes",
+  "info": {
+    "singularName": "candidato",
+    "pluralName": "candidatoes",
+    "displayName": "Candidato",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Cognome": {
+      "type": "string",
+      "required": true
+    },
+    "ID_Sito": {
+      "type": "uid",
+      "targetField": "Nome"
+    },
+    "Password": {
+      "type": "password",
+      "required": true,
+      "private": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "NumeroTelefono": {
+      "type": "biginteger"
+    },
+    "DataNascita": {
+      "type": "date",
+      "required": true
+    },
+    "CurriculumVitae": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "candidato"
+    },
+    "Attitudini": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.attitudini"
+    },
+    "Preferenze": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.preferenze"
+    },
+    "colloquios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::colloquio.colloquio",
+      "mappedBy": "candidato"
+    },
+    "competenzas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::competenza.competenza",
+      "mappedBy": "candidatoes"
+    },
+    "certificazioni": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::certificazione.certificazione",
+      "inversedBy": "candidati"
+    },
+    "LivelloEsperienza": {
+      "type": "enumeration",
+      "enum": [
+        "Base",
+        "Intermedio",
+        "Esperto"
+      ]
+    },
+    "materiale_formativos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::materiale-formativo.materiale-formativo",
+      "mappedBy": "candidatoes"
+    },
+    "offerte_lavoro": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::offerta-lavoro.offerta-lavoro",
+      "mappedBy": "candidati"
+    },
+    "feedbacks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::feedback.feedback",
+      "mappedBy": "candidato"
+    }
+  }
+}

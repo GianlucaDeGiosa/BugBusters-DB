@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "colloquios",
+  "info": {
+    "singularName": "colloquio",
+    "pluralName": "colloquios",
+    "displayName": "Colloquio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Data": {
+      "type": "datetime"
+    },
+    "Stato": {
+      "type": "enumeration",
+      "enum": [
+        "DaConfermare",
+        "Confermato",
+        "Annullato",
+        "Completato"
+      ]
+    },
+    "Note": {
+      "type": "text"
+    },
+    "candidato": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::candidato.candidato",
+      "inversedBy": "colloquios"
+    },
+    "slot_colloquio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::slot-colloquio.slot-colloquio",
+      "mappedBy": "colloquio"
+    },
+    "recruiter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recruiter.recruiter",
+      "inversedBy": "colloquios"
+    }
+  }
+}
