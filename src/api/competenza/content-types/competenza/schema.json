@@ -25,17 +25,17 @@
         "Esperto"
       ]
     },
-    "candidatoes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::candidato.candidato",
-      "inversedBy": "competenzas"
-    },
     "offerteLavoro": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::offerta-lavoro.offerta-lavoro",
       "inversedBy": "competenze"
+    },
+    "candidato": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::candidato.candidato",
+      "inversedBy": "competenzas"
     }
   }
 }

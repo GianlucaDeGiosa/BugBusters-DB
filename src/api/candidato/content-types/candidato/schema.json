@@ -61,9 +61,9 @@
     },
     "competenzas": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::competenza.competenza",
-      "mappedBy": "candidatoes"
+      "mappedBy": "candidato"
     },
     "LivelloEsperienza": {
       "type": "enumeration",

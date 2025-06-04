@@ -477,7 +477,7 @@ export interface ApiCandidatoCandidato extends Struct.CollectionTypeSchema {
       'api::colloquio.colloquio'
     >;
     competenzas: Schema.Attribute.Relation<
-      'manyToMany',
+      'oneToMany',
       'api::competenza.competenza'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -574,8 +574,8 @@ export interface ApiCompetenzaCompetenza extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    candidatoes: Schema.Attribute.Relation<
-      'manyToMany',
+    candidato: Schema.Attribute.Relation<
+      'manyToOne',
       'api::candidato.candidato'
     >;
     Categoria: Schema.Attribute.String;
